@@ -100,7 +100,7 @@
     
 		<div id="tabsarea">
       <div id="tabs">
-        <a href="https://yande.re/post/show/378392">
+        <a href="<c:url value="/viewProductList" />">
           Music Products
         </a>
 
@@ -110,6 +110,10 @@
 
         <a href="https://yande.re/post/show/378392">
           Contact
+        </a>
+        
+        <a href="<c:url value="/login"/>">
+          Login
         </a>
       </div>
 
