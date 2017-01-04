@@ -14,7 +14,7 @@
 
   <title><c:out value="${param.pageTitle}" /></title>
 
-  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <link type="text/css" rel="stylesheet" href="<c:url value="/resources/bootstrap/3.3.7/css/bootstrap.min.css" />" />
   <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/styles-common.css" />" />
   <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/${param.pageStyleFile}.css" />" />
 </head>

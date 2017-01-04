@@ -11,14 +11,14 @@
 <div class="container">
   <form class="form-signin" action="<c:url value="/j_spring_security_check"/>" method="post">
     <h4>
-    	Please sign in:<span class="errorarea">
-    		<c:if test="${not empty error}">
-				(${error})
-			</c:if>
-			<c:if test="${not empty msg}">
-				(${msg})
-			</c:if>
-			</span>
+      Please sign in:<span class="errorarea">
+    	<c:if test="${not empty error}">
+		  (${error})
+        </c:if>
+        <c:if test="${not empty msg}">
+          (${msg})
+        </c:if>
+	  </span>
     </h4>
     <label for="username" class="sr-only">Email address</label>
     <input id="username" name="username" type="text" class="form-control" placeholder="user name" required autofocus>

@@ -29,22 +29,22 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="1.png" 
+        <img src="https://files.yande.re/jpeg/5e5b9483132a07b3f0738293d6958803/yande.re%20370697%20animal_ears%20breast_hold%20bunny_ears%20cream%20ke-ta%20nipples%20ringo_%28touhou%29%20tail%20topless%20touhou.jpg" 
         alt="p0" height="345px">
       </div>
 
       <div class="item">
-        <img src="2.jpg"
+        <img src="https://files.yande.re/jpeg/1f993022ee7965e57af7ee9cd09f849f/yande.re%20370696%20junko%20ke-ta%20nipples%20topless%20touhou.jpg"
         alt="p1" height="345px">
       </div>
 
       <div class="item active">
-        <img src="1.png" 
+        <img src="https://files.yande.re/image/125e210ae0f9915f5519279e1ef12b16/yande.re%20354889%20bloomers%20dress%20ke-ta%20star_sapphire%20touhou.jpg" 
         alt="p0" height="345px">
       </div>
 
       <div class="item">
-        <img src="2.jpg"
+        <img src="https://files.yande.re/image/11dd3ffcfa5e48788d443bc8c793d47a/yande.re%20355285%20ke-ta%20kochiya_sanae%20touhou.jpg"
         alt="p1" height="345px">
       </div>
     </div>
