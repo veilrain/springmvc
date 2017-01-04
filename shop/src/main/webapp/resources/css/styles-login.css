@@ -22,3 +22,8 @@ h4 {
   border-color: #808080;
   border-radius: 4px;
 }
+
+.errorarea {
+  font-size: 11pt;
+  color: #bf755f;
+}

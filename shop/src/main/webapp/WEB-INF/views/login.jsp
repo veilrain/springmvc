@@ -10,7 +10,16 @@
 
 <div class="container">
   <form class="form-signin" action="<c:url value="/j_spring_security_check"/>" method="post">
-    <h4>Please sign in:</h4>
+    <h4>
+    	Please sign in:<span class="errorarea">
+    		<c:if test="${not empty error}">
+				(${error})
+			</c:if>
+			<c:if test="${not empty msg}">
+				(${msg})
+			</c:if>
+			</span>
+    </h4>
     <label for="username" class="sr-only">Email address</label>
     <input id="username" name="username" type="text" class="form-control" placeholder="user name" required autofocus>
     <label for="password" class="sr-only">Password</label>
@@ -27,6 +36,8 @@
     <button class="btn btn-lg btn-primary btn-block" type="submit" id="submitBtn" value="login">Sign in</button>
     
     <p class="checkbox">New customer?  <a href="#">create a new VelecTi account</a>.</p>
+    	
+			
     
   </form>
 </div> <!-- /container -->
