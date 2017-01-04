@@ -9,9 +9,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class loginController {
 
 	@RequestMapping(value = "/login")
-	public String login(@RequestParam(value = "error", required = false) String error, Model model) {
+	public String login(@RequestParam(value = "error", required = false) String error,
+			@RequestParam(value = "logout", required = false) String logout, Model model) {
 		if (error != null) {
 			model.addAttribute("error", "Invalid user or Password");
+		}
+		if (logout != null) {
+			model.addAttribute("msg", "You have been logged out");
 		}
 		return "login";
 	}

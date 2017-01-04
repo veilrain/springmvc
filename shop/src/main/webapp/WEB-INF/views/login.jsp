@@ -104,8 +104,12 @@
 			<div style="color: red">${error}</div>
 		</c:if>
 
-		<label for="user"></label><input id="user" type="text" /> <label
-			for="password"></label><input id="password" type="password" /> <input
+		<c:if test="${not empty msg}">
+			<div style="color: red">${msg}</div>
+		</c:if>
+		
+		<label for="username"></label><input id="username" name="username" type="text" /> <label
+			for="password"></label><input id="password" name="password" type="password" /> <input
 			type="submit" value="login" /> <input type="hidden"
 			name="${_csrf.parameterName}" value="${_csrf.token}" />
 	</form>
