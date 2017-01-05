@@ -18,7 +18,7 @@
 	</bean>
 	<security:http auto-config="true">
 		<security:form-login login-page="/login"
-			default-target-url="/admin/" authentication-failure-url="/login?error"
+			default-target-url="/admin/showProduct" authentication-failure-url="/login?error"
 			username-parameter="username" password-parameter="password" />
 		<security:intercept-url pattern="/admin/**"
 			access="ROLE_USER" />
@@ -52,4 +52,5 @@
 			</list>
 		</property>
 	</bean>
+	
 </beans>
