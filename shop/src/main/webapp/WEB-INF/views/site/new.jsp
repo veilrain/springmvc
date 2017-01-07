@@ -7,13 +7,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!-- Page Header -->
-<jsp:include page="components/page-header.jsp">
+<jsp:include page="../components/page-header.jsp">
   <jsp:param name="pageTitle" value="VE Store - What's New"/>
   <jsp:param name="pageStyleFile" value="styles-new"/>
 </jsp:include>
 
 <!-- Nav Bar -->
-<jsp:include page="components/nav-bar.jsp" />
+<jsp:include page="../components/nav-bar.jsp" />
 
 <!-- === What's new slide shows ==== -->
 <div id="slideShows">
@@ -93,6 +93,6 @@
   </div><!-- /.row -->
 </div><!-- /.container -->
 
-<jsp:include page="components/page-footer.jsp">
+<jsp:include page="../components/page-footer.jsp">
   <jsp:param name="longPage" value="true"/>
 </jsp:include>

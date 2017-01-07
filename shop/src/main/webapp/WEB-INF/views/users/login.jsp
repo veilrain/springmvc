@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!-- Page Header -->
-<jsp:include page="components/page-header.jsp">
+<jsp:include page="../components/page-header.jsp">
   <jsp:param name="pageTitle" value="VE Store - Login"/>
   <jsp:param name="pageStyleFile" value="styles-login"/>
 </jsp:include>
@@ -42,6 +42,6 @@
   </form>
 </div> <!-- /container -->
 
-<jsp:include page="components/page-footer.jsp">
+<jsp:include page="../components/page-footer.jsp">
   <jsp:param name="longPage" value="false"/>
 </jsp:include>

@@ -1,0 +1,56 @@
+.container {
+  width: 300px;
+  margin: 50px;
+  margin-left: auto; 
+  margin-right: auto; 
+}
+
+.container-large {
+  width: 500px;
+  margin: 15px;
+  margin-left: auto; 
+  margin-right: auto; 
+}
+
+.container-exlg {
+  width: 800px;
+  margin: 15px;
+  margin-left: auto; 
+  margin-right: auto; 
+}
+
+h1 {
+  text-align: center;
+  font-weight: 100;
+  font-size: 20pt;
+}
+
+h4 {
+  font-weight: 100;
+}
+
+.form-control {
+  margin-top: 15px;
+  border-radius: 4px;
+  background-color: #333333;
+  color: white;
+}
+
+#submitBtn, .btn-lg {
+  margin-top: 15px;
+  background-image: none;
+  background-color: #333333;
+  border-color: #808080;
+  border-radius: 4px;
+  font-weight: 100;
+}
+
+.manageBtn {
+  margin-bottom: 15px;
+}
+
+.errorarea {
+  text-align: center;
+  font-size: 11pt;
+  color: #bf755f;
+}
