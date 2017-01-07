@@ -42,14 +42,10 @@ public class SiteConsoleController {
 			String id, Model model
 		) {
 		List<Product> products = productTable.retrieveBy("id", id);
-		boolean isEditing = !products.isEmpty();
 		model.addAttribute(
 			"newProduct", 
-			isEditing ? products.get(0): new Product()
+			products.isEmpty() ?  new Product() : products.get(0)
 		);
-		if (isEditing) {
-			model.addAttribute("id", id);
-		}
 		return "console/submit-product";
 	}
 	
@@ -61,16 +57,9 @@ public class SiteConsoleController {
 		Product newProduct, 
 		BindingResult result, 
 		Model model,
-		HttpServletRequest request,
-		@RequestParam(value = "id", required = false) 
-		String id
+		HttpServletRequest request
 	) {
 		if (!result.hasErrors()) {
-			try {
-				newProduct.setId(Integer.parseInt(id));
-			} catch (Exception e) {
-				e.printStackTrace(System.err);
-			}
 			newProduct.setLastTimeModified(new Date(Calendar.getInstance().getTime().getTime()));
 			productTable.update(newProduct);
 		}
