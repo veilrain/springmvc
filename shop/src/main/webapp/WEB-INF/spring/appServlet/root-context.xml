@@ -84,4 +84,28 @@
 			</list>
 		</property>
 	</bean>
+	
+	<bean id="productTable" class="vestore.dao.HibernateDAOImpl">
+		<constructor-arg>
+			<value>vestore.model.Product</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="userTable" class="vestore.dao.HibernateDAOImpl">
+		<constructor-arg>
+			<value>vestore.model.User</value>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="orderTable" class="vestore.dao.HibernateDAOImpl">
+		<constructor-arg>
+			<value>vestore.model.Order</value>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="orderEntryTable" class="vestore.dao.HibernateDAOImpl">
+		<constructor-arg>
+			<value>vestore.model.OrderEntry</value>
+		</constructor-arg>
+	</bean>
 </beans>

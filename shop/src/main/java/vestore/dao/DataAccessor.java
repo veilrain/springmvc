@@ -3,7 +3,7 @@ package vestore.dao;
 import java.util.List;
 import java.util.Map;
 
-public interface AbstractDAO<E> {
+public interface DataAccessor<E> {
 	/* Add the given entry to the database system */
 	public void add(E entry);
 	

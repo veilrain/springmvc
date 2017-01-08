@@ -16,14 +16,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import vestore.dao.AbstractDAO;
+import vestore.dao.DataAccessor;
+import vestore.model.Order;
 import vestore.model.Product;
+import vestore.model.User;
 
 @Controller
 public class SiteConsoleController {
 	/* DAO connects to the table of Products */
 	@Autowired
-	private AbstractDAO<Product> productTable;
+	private DataAccessor<Product> productTable;
+	@Autowired
+	private DataAccessor<User> userTable;
+	@Autowired
+	private DataAccessor<User> orderTable;
 	
 	/* View Handlers */
 	
@@ -49,8 +55,6 @@ public class SiteConsoleController {
 		return "console/submit-product";
 	}
 	
-	/* POST Requests Handlers */
-	
 	@RequestMapping(value = "/console/submit-product", method = RequestMethod.POST)
 	public String submitProduct(
 		@Valid @ModelAttribute("newProduct") 
@@ -74,5 +78,47 @@ public class SiteConsoleController {
 		) {
 		productTable.delete(productTable.retrieveBy("id", id).get(0));
 		return viewProductList(model);
+	}
+	
+	@RequestMapping(value = "/console/user-list")
+	public String viewUserList(Model model) {
+		model.addAttribute("users", userTable.retrieveAll());
+		return "console/user-list";
+	}
+	
+	@RequestMapping(value = "/console/submit-user")
+	public String viewSubmitUser(
+			@RequestParam(value = "id", required = false) 
+			String id, Model model
+		) {
+		List<User> users = userTable.retrieveBy("user_id", id);
+		model.addAttribute(
+			"newUser", 
+			users.isEmpty() ?  new User() : users.get(0)
+		);
+		return "console/submit-user";
+	}
+	
+	@RequestMapping(value = "/console/submit-user", method = RequestMethod.POST)
+	public String submitUser(
+		@Valid @ModelAttribute("newUser") 
+		User newUser, 
+		BindingResult result, 
+		Model model,
+		HttpServletRequest request
+	) {
+		if (!result.hasErrors()) {
+			userTable.update(newUser);
+		}
+		return viewUserList(model);
+	}
+	
+	@RequestMapping(value = "/console/delete-user")
+	public String deleteUser(
+			@RequestParam(value = "id", required = true) 
+			String id, Model model
+		) {
+		userTable.delete(userTable.retrieveBy("id", id).get(0));
+		return viewUserList(model);
 	}
 }

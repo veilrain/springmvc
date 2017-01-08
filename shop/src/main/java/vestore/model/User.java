@@ -1,19 +1,45 @@
 package vestore.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 @Entity
+@Table(name = "Users")
 public class User {
-	
 	@Id
 	@GeneratedValue
+	@Column(name = "user_id", unique = true)
 	private int userId;
 	private String username;
 	private String password;
-	private boolean enable;
-	private int customerId;
+	
+	@OneToOne()
+	@JoinColumn(name = "order_id", nullable = true)
+    @Cascade(value = { CascadeType.DELETE })
+	private Order cart = null;
+	
+	@OneToMany(mappedBy = "user")
+    @Cascade(value = { CascadeType.DELETE })
+	private Set<Order> orders = new HashSet<>(0);
+
+	public Set<Order> getOrders() {
+		return orders;
+	}
+	public void setOrders(Set<Order> orders) {
+		this.orders = orders;
+	}
 	/**
 	 * @return the userId
 	 */
@@ -50,29 +76,10 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	/**
-	 * @return the enable
-	 */
-	public boolean isEnable() {
-		return enable;
+	public Order getCart() {
+		return cart;
 	}
-	/**
-	 * @param enable the enable to set
-	 */
-	public void setEnable(boolean enable) {
-		this.enable = enable;
+	public void setCart(Order cart) {
+		this.cart = cart;
 	}
-	/**
-	 * @return the customerId
-	 */
-	public int getCustomerId() {
-		return customerId;
-	}
-	/**
-	 * @param customerId the customerId to set
-	 */
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
-	}
-	
 }

@@ -1,6 +1,8 @@
 package vestore.model;
 
 import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Set;
 import java.io.Serializable;
 import java.sql.Date;
 
@@ -9,7 +11,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 @Entity
 @Table(name = "Products")
@@ -26,6 +32,18 @@ public class Product implements Serializable {
 	@Column(name = "last_time_modified")
 	private Date lastTimeModified;
 	
+	@OneToMany(mappedBy = "product")
+    @Cascade(value = { CascadeType.DELETE, CascadeType.SAVE_UPDATE })
+	private Set<OrderEntry> entries = new HashSet<>(0);
+	
+	public Set<OrderEntry> getEntries() {
+		return entries;
+	}
+
+	public void setEntries(Set<OrderEntry> entries) {
+		this.entries = entries;
+	}
+
 	public Product() {
 		dateAdded = new Date(Calendar.getInstance().getTime().getTime());
 		lastTimeModified = new Date(dateAdded.getTime());

@@ -14,8 +14,10 @@
 <div class="container container-large">
   <a class="btn btn-lg btn-primary btn-block manageBtn" href="<c:url value="/console/product-list" />">View Current Products</a>
   <a class="btn btn-lg btn-primary btn-block manageBtn" href="<c:url value="/console/submit-product" />">Add New Product</a>
+  <a class="btn btn-lg btn-primary btn-block manageBtn" href="<c:url value="/console/user-list" />">View Current Users</a>
+  <a class="btn btn-lg btn-primary btn-block manageBtn" href="<c:url value="/console/submit-user" />">Add New User</a>
 </div> <!-- /container -->
 
 <jsp:include page="../components/page-footer-console.jsp">
-  <jsp:param name="noback" value="true"/>
+  <jsp:param name="noback" value="false"/>
 </jsp:include>
