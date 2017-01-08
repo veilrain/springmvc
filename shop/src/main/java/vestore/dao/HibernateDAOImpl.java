@@ -43,7 +43,7 @@ public class HibernateDAOImpl<E> implements DataAccessor<E> {
 	@SuppressWarnings("unchecked")
 	public List<E> retrieveAll() {
 		session = sessionFactory.openSession();
-		List<E> retval = session.createCriteria(type).list();
+		List<E> retval = session.createQuery("from " + type.getName()).list();
 		session.close();
 		return retval;
 	}

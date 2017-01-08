@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import vestore.dao.DataAccessor;
-import vestore.model.Order;
 import vestore.model.Product;
 import vestore.model.User;
 
@@ -28,8 +27,6 @@ public class SiteConsoleController {
 	private DataAccessor<Product> productTable;
 	@Autowired
 	private DataAccessor<User> userTable;
-	@Autowired
-	private DataAccessor<User> orderTable;
 	
 	/* View Handlers */
 	
