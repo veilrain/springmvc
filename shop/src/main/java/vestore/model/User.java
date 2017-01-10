@@ -24,7 +24,15 @@ public class User {
 	private int userId;
 	private String username;
 	private String password;
-	
+	private String emailAddress;
+	private String code;
+
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
 	@OneToOne()
 	@JoinColumn(name = "order_id", nullable = true)
     @Cascade(value = { CascadeType.DELETE })
@@ -81,5 +89,12 @@ public class User {
 	}
 	public void setCart(Order cart) {
 		this.cart = cart;
+	}
+	
+	public String getEmailAddress() {
+		return emailAddress;
+	}
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
 	}
 }

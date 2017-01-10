@@ -35,7 +35,7 @@
     
     <button class="btn btn-lg btn-primary btn-block" type="submit" id="submitBtn" value="login">Sign in</button>
     
-    <p class="checkbox">New customer?  <a href="#">create a new VelecTi account</a>.</p>
+    <p class="checkbox">New customer?  <a href="<c:url value="/createNewOne" />">create a new VelecTi account</a>.</p>
     	
 			
     
