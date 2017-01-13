@@ -13,6 +13,7 @@
 	<table class="table">
 		<thead>
       <tr>
+      
         <th>PID</th>
         <th>Product Name</th>
         <th>Date Added</th>
@@ -25,6 +26,9 @@
 		<tbody>
 			<c:forEach items="${products}" var="product">
 				<tr>
+					<td><img
+						src= "/pic/${product.id}.png" 
+						style="width: 120px; height: 80px;" /></td>
 					<td>${product.id}</td>
 					<td><a href="">${product.name}</a></td>
 					<td>${product.dateAdded}</td>

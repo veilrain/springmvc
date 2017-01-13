@@ -46,7 +46,7 @@ public class CreateNewOneControllerr {
 		Session mailSession = Session.getDefaultInstance(props);
 		Message msg = new MimeMessage(mailSession);
 		msg.setFrom(new InternetAddress("@126.com"));//TODO
-		msg.setRecipient(Message.RecipientType.TO, new InternetAddress("lay123111@126.com"));
+		msg.setRecipient(Message.RecipientType.TO, new InternetAddress(user.getEmailAddress()));
 		msg.setSubject("register");
 		msg.setContent("Mail test:" + code, "text/html;charset=UTF-8");
 		msg.saveChanges();

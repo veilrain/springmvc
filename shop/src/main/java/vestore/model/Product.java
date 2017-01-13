@@ -1,10 +1,10 @@
 package vestore.model;
 
+import java.io.Serializable;
+import java.sql.Date;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
-import java.io.Serializable;
-import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,9 +13,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "Products")
@@ -27,6 +29,9 @@ public class Product implements Serializable {
 	private double price;
 	private String category;
 	private String description;
+	@Transient
+	private MultipartFile productImg;
+	
 	@Column(name = "date_added")
 	private Date dateAdded;
 	@Column(name = "last_time_modified")
@@ -95,6 +100,16 @@ public class Product implements Serializable {
 		this.lastTimeModified = lastTimeModified;
 	}
 	
+	
+	public MultipartFile getProductImg() {
+		return productImg;
+	}
+
+	public void setProductImg(MultipartFile productImg) {
+		this.productImg = productImg;
+	}
+
+
 	/*
 	 * Auto generated serial UID 
 	 */

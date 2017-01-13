@@ -24,6 +24,14 @@
 		<property name="username" value="root"></property>
 		<property name="password" value=""></property>
 	</bean>
+<!-- 	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean> -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="102400" />
+	</bean>
 
 	<security:http auto-config="true">
 		<security:form-login 

@@ -19,13 +19,15 @@
   <form:form 
     action="${pageContext.request.contextPath}/console/submit-product"
     method="POST"
-    modelAttribute="newProduct"
+    modelAttribute="newProduct" enctype="multipart/form-data"
   >
     <form:input path="name" id="name" class="form-control" placeholder="Product Name" value="${newProduct.name}"/>
     <form:input path="price" id="price" class="form-control" placeholder="Product Price" value="${newProduct.price}"/>
     <form:input path="category" id="category" class="form-control" placeholder="Product Category" value="${newProduct.category}"/>
-    
-    <!-- inherited properties -->
+
+	<form:input path="productImg" id="productImg" type="file" placeholder="Product image" class="form:input-large" />
+
+		<!-- inherited properties -->
     <form:input path="dateAdded" value="${newProduct.dateAdded}" type="hidden"/>
     <form:input path="id" value="${newProduct.id}" type="hidden"/>
     

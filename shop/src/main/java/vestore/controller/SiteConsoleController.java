@@ -1,5 +1,9 @@
 package vestore.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Date;
 import java.util.Calendar;
 import java.util.List;
@@ -15,6 +19,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import vestore.dao.DataAccessor;
 import vestore.model.Product;
@@ -27,6 +32,9 @@ public class SiteConsoleController {
 	private DataAccessor<Product> productTable;
 	@Autowired
 	private DataAccessor<User> userTable;
+	
+	private Path path;
+	private String url = "G:/upload/images/";
 	
 	/* View Handlers */
 	
@@ -60,11 +68,22 @@ public class SiteConsoleController {
 		Model model,
 		HttpServletRequest request
 	) {
+		
 		if (!result.hasErrors()) {
 			newProduct.setLastTimeModified(new Date(Calendar.getInstance().getTime().getTime()));
 			productTable.update(newProduct);
 		}
-		
+		MultipartFile productImg = newProduct.getProductImg();
+		path = Paths.get(url + String.valueOf(newProduct.getId()) + ".png");
+		if (productImg != null && !productImg.isEmpty()) {
+			try {
+				productImg.transferTo(new File(path.toString()));
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				throw  new RuntimeException("Save failed because of the ProductImg");
+			}
+		}
 		return viewProductList(model);
 	}
 	
