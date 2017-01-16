@@ -31,6 +31,9 @@ public class MainSiteController {
 	@RequestMapping(value = "/new")
 	public String viewWhatsNew() { return "site/new"; }
 	
+	@RequestMapping(value = "/product")
+	public String productDetailView() { return "site/product-detail"; }
+	
 	@RequestMapping(value = "/all-products")
 	public String allProductList(Model model) {
 		model.addAttribute("products", productTable.retrieveAll());
