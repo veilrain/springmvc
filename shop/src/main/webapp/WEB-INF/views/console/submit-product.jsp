@@ -23,9 +23,6 @@
   >
     <form:input path="name" id="name" class="form-control" placeholder="Product Name" value="${newProduct.name}"/>
     <form:input path="price" id="price" class="form-control" placeholder="Product Price" value="${newProduct.price}"/>
-    <form:input path="category" id="category" class="form-control" placeholder="Product Category" value="${newProduct.category}"/>
-
-	<form:input path="productImg" id="productImg" type="file" placeholder="Product image" class="form:input-large" />
 
 		<!-- inherited properties -->
     <form:input path="dateAdded" value="${newProduct.dateAdded}" type="hidden"/>
@@ -38,6 +35,11 @@
       maxlength="256" rows="7"
       value="${newProduct.description}"
     />
+		
+  	<h5>Product Image large:</h5>
+		<form:input path="productImg1" id="productImg1" type="file" placeholder="Product image small" value="${newProduct.productImg1}" class="form:input-large form-control" />
+  	<h5>Product Image Small:</h5>
+		<form:input path="productImg2" id="productImg2" type="file" placeholder="Product image large" value="${newProduct.productImg2}" class="form:input-large form-control" />
 
     <!-- Submit button -->
     <button class="btn btn-lg btn-primary btn-block" type="submit" id="submitBtn">Submit Product</button>

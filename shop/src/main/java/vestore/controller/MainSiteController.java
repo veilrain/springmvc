@@ -1,6 +1,9 @@
 package vestore.controller;
 
+import java.security.Principal;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,13 +43,15 @@ public class MainSiteController {
 		return "site/all-products";
 	}
 	
-	@RequestMapping(value = "/add-to-cart")
+	@RequestMapping(value = "/user/add-to-cart")
 	public String addToCart(
 			@RequestParam(value = "id", required = true) 
-			String id, Model model
+			String id, 
+			Model model,
+			Principal principal,
+			HttpServletRequest request
 		) {
-		String userId = "1";
-		User u = userTable.retrieveBy("user_id", userId).get(0);
+		User u = userTable.retrieveBy("username", "'" + principal.getName() + "'").get(0);
 		Order cart = u.getCart();
 		
 		if (cart == null) {
@@ -73,22 +78,7 @@ public class MainSiteController {
 		orderEntryTable.update(newEntry);
 		
 		cart = orderTable.retrieveBy("order_id", "" + cart.getOrderId()).get(0);
-		model.addAttribute("products", cart.getEntries());
-		return "users/cart";
-	}
-	
-	@RequestMapping(value = "/delete-from-cart")
-	public String deleteUser(
-			@RequestParam(value = "id", required = true) 
-			String id, Model model
-		) {
-		OrderEntry e = orderEntryTable.retrieveBy("entryId", id).get(0);
-		Order cart = e.getOrder();
-		orderEntryTable.delete(e);
-		
-		cart = orderTable.retrieveBy("order_id", "" + cart.getOrderId()).get(0);
-		
-		model.addAttribute("products", cart.getEntries());
-		return "users/cart";
+//		model.addAttribute("products", cart.getEntries());
+ 		return "redirect:" + request.getHeader("Referer");
 	}
 }

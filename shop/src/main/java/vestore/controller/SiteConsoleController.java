@@ -27,14 +27,14 @@ import vestore.model.User;
 
 @Controller
 public class SiteConsoleController {
+	public static final String IMAGE_SAVE_URL = "/Users/veilrain/upload/images/";
+	
 	/* DAO connects to the table of Products */
 	@Autowired
 	private DataAccessor<Product> productTable;
 	@Autowired
 	private DataAccessor<User> userTable;
 	
-	private Path path;
-	private String url = "G:/upload/images/";
 	
 	/* View Handlers */
 	
@@ -73,15 +73,19 @@ public class SiteConsoleController {
 			newProduct.setLastTimeModified(new Date(Calendar.getInstance().getTime().getTime()));
 			productTable.update(newProduct);
 		}
-		MultipartFile productImg = newProduct.getProductImg();
-		path = Paths.get(url + String.valueOf(newProduct.getId()) + ".png");
-		if (productImg != null && !productImg.isEmpty()) {
+		MultipartFile productImg1 = newProduct.getProductImg1();
+		MultipartFile productImg2 = newProduct.getProductImg2();
+		if (productImg1 != null && !productImg1.isEmpty() && productImg2 != null && !productImg2.isEmpty()) {
 			try {
-				productImg.transferTo(new File(path.toString()));
+				productImg1.transferTo(
+					new File(Paths.get(IMAGE_SAVE_URL + String.valueOf(newProduct.getId()) + "-1.png").toString())
+				);
+				productImg2.transferTo(
+					new File(Paths.get(IMAGE_SAVE_URL + String.valueOf(newProduct.getId()) + "-2.png").toString())
+				);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				System.err.println("Exception Occurred when try to save the image");
 				e.printStackTrace();
-				throw  new RuntimeException("Save failed because of the ProductImg");
 			}
 		}
 		return viewProductList(model);

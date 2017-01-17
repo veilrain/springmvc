@@ -16,6 +16,7 @@
 <jsp:include page="../components/nav-bar.jsp" />
 
 <!-- === What's new slide shows ==== -->
+<!-- === What's new slide shows ==== -->
 <div id="slideShows">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -29,20 +30,23 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="http://orig10.deviantart.net/e844/f/2014/347/f/f/fate_stay_night_unlimited_blade_works_hd_wallpaper_by_tammypain-d89one4.png" 
+        <img src="1.png" 
         alt="p0" height="345px">
       </div>
-      <div class="item active">
-        <img src="http://orig10.deviantart.net/e844/f/2014/347/f/f/fate_stay_night_unlimited_blade_works_hd_wallpaper_by_tammypain-d89one4.png" 
+
+      <div class="item">
+        <img src="2.jpg"
+        alt="p1" height="345px">
+      </div>
+
+      <div class="item">
+        <img src="1.png" 
         alt="p0" height="345px">
       </div>
-      <div class="item active">
-        <img src="http://orig10.deviantart.net/e844/f/2014/347/f/f/fate_stay_night_unlimited_blade_works_hd_wallpaper_by_tammypain-d89one4.png" 
-        alt="p0" height="345px">
-      </div>
-      <div class="item active">
-        <img src="http://orig10.deviantart.net/e844/f/2014/347/f/f/fate_stay_night_unlimited_blade_works_hd_wallpaper_by_tammypain-d89one4.png" 
-        alt="p0" height="345px">
+
+      <div class="item">
+        <img src="2.jpg"
+        alt="p1" height="345px">
       </div>
     </div>
 
@@ -64,25 +68,25 @@
   <!-- Three columns of text below the carousel -->
   <div class="row">
     <div class="colLom col-lg-3 col-sm-3 col-xs-6">
-      <a href="#" class="thumbnail" style="background-image: url(//assets.yande.re/data/preview/96/f2/96f271c924dc0dea6a3d9b96aaedd674.jpg)">
+      <a href="#" class="thumbnail" style="background-image: url()">
         <div class="thumbPlaceHolder"> </div>
         <p>Description</p>
       </a>
     </div><!-- /.col-lg-4 -->
     <div class="colLom col-lg-3 col-sm-3 col-xs-6">
-      <a href="#" class="thumbnail" style="background-image: url(//assets.yande.re/data/preview/6f/63/6f6387323771495172d985308f95d502.jpg)">
+      <a href="#" class="thumbnail" style="background-image: url()">
         <div class="thumbPlaceHolder"> </div>
         <p>Description</p>
       </a>
     </div><!-- /.col-lg-4 -->
     <div class="colLom col-lg-3 col-sm-3 col-xs-6">
-      <a href="#" class="thumbnail" style="background-image: url(//assets.yande.re/data/preview/95/09/950949119d848bda0625e7095d54b5da.jpg)">
+      <a href="#" class="thumbnail" style="background-image: url()">
         <div class="thumbPlaceHolder"> </div>
         <p>Description</p>
       </a>
     </div><!-- /.col-lg-4 -->
     <div class="colLom col-lg-3 col-sm-3 col-xs-6">
-      <a href="#" class="thumbnail" style="background-image: url(//assets.yande.re/data/preview/6f/96/6f9622c7c42b6eb12f281dc9c1b5b107.jpg)">
+      <a href="#" class="thumbnail" style="background-image: url()">
         <div class="thumbPlaceHolder"> </div>
         <p>Description</p>
       </a>

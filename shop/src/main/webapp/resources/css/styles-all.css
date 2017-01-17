@@ -1,0 +1,14 @@
+body {
+	padding-top: 50px;
+}
+
+h1 {
+	font-weight: 100;
+}
+
+.acart {
+  margin-top: 15px;
+  border-color: #808080;
+  border-radius: 4px;
+  color: white;
+}

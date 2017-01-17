@@ -29,8 +29,6 @@ public class Product implements Serializable {
 	private double price;
 	private String category;
 	private String description;
-	@Transient
-	private MultipartFile productImg;
 	
 	@Column(name = "date_added")
 	private Date dateAdded;
@@ -40,6 +38,14 @@ public class Product implements Serializable {
 	@OneToMany(mappedBy = "product")
     @Cascade(value = { CascadeType.DELETE, CascadeType.SAVE_UPDATE })
 	private Set<OrderEntry> entries = new HashSet<>(0);
+	
+	/**
+	 * Not stored in database
+	 */
+	@Transient
+	private MultipartFile productImg1;
+	@Transient
+	private MultipartFile productImg2;
 	
 	public Set<OrderEntry> getEntries() {
 		return entries;
@@ -99,14 +105,21 @@ public class Product implements Serializable {
 	public void setLastTimeModified(Date lastTimeModified) {
 		this.lastTimeModified = lastTimeModified;
 	}
-	
-	
-	public MultipartFile getProductImg() {
-		return productImg;
+
+	public MultipartFile getProductImg1() {
+		return productImg1;
 	}
 
-	public void setProductImg(MultipartFile productImg) {
-		this.productImg = productImg;
+	public void setProductImg1(MultipartFile productImg1) {
+		this.productImg1 = productImg1;
+	}
+
+	public MultipartFile getProductImg2() {
+		return productImg2;
+	}
+
+	public void setProductImg2(MultipartFile productImg2) {
+		this.productImg2 = productImg2;
 	}
 
 

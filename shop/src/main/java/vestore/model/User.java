@@ -26,6 +26,8 @@ public class User {
 	private String password;
 	private String emailAddress;
 	private String code;
+	private boolean enabled = true;
+	private String role = "ROLE_USER";
 
 	public String getCode() {
 		return code;
@@ -34,7 +36,7 @@ public class User {
 		this.code = code;
 	}
 	@OneToOne()
-	@JoinColumn(name = "order_id", nullable = true)
+	@JoinColumn(name = "cart", nullable = true)
     @Cascade(value = { CascadeType.DELETE })
 	private Order cart = null;
 	

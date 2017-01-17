@@ -6,11 +6,14 @@
 <!-- Page Header -->
 <jsp:include page="../components/page-header.jsp">
   <jsp:param name="pageTitle" value="Cart"/>
-  <jsp:param name="pageStyleFile" value="styles-console"/>
+  <jsp:param name="pageStyleFile" value="styles-all"/>
 </jsp:include>
 
+<!-- Nav Bar -->
+<jsp:include page="../components/nav-bar.jsp" />
+
 <div class="container container-exlg">
-	<h1>Testing Shopping Cart</h1>
+	<h1>Your Shopping Cart</h1>
 	<table class="table">
 		<thead>
       <tr>
